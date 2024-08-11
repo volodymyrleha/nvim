@@ -18,9 +18,16 @@ return require('packer').startup(function(use)
         "ahmedkhalf/project.nvim",
         config = function()
             require("project_nvim").setup {
-                -- patterns = { ".git" }
+                manual_mode = true,
             }
         end
+    }
+
+    use "nvim-lua/plenary.nvim"
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
     }
 
     -- Themes
@@ -33,7 +40,7 @@ return require('packer').startup(function(use)
 
     -- LSP
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-	
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
